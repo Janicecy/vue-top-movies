@@ -1,7 +1,7 @@
 import VueRouter from 'vue-router'
 import Home from '../pages/Home'
 import MovieList from '../pages/MovieList'
-
+import Rating from '../pages/Rating'
 export default new VueRouter({
     mode:'history',
     routes: [
@@ -21,7 +21,7 @@ export default new VueRouter({
         {
             name: 'rating',
             path: '/rating',
-            component: MovieList
+            component: Rating
         }
         
     ]

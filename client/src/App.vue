@@ -1,29 +1,26 @@
 <template>
   <div id="app">
-    <Navbar/>
+    <Navbar />
     <router-view></router-view>
     <div id="qeqw"></div>
   </div>
 </template>
 
 <script>
-import Navbar from './components/Navbar'
+import Navbar from "./components/Navbar";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    Navbar
+    Navbar,
   },
-  created() {
-
-  },
-  
-}
+  created() {},
+};
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
@@ -43,5 +40,9 @@ export default {
 
 .text-right {
   text-align: right;
+}
+
+.text-center {
+  text-align: center;
 }
 </style>
