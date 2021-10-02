@@ -5,11 +5,16 @@ name = "pypi"
 
 [packages]
 flask = "*"
+pymongo = "*"
+mongoengine = "*"
+lxml = "*"
+bs4 = "*"
 
 [dev-packages]
 
 [requires]
 python_version = "3.9"
+python-dotenv = "*"
 
 [scripts]
 start = 'flask run'
