@@ -1,6 +1,6 @@
 from flask import Flask, json, jsonify
 import os
-# import imdb_spider
+# import imdb_crawler
 from models import IMDB_Movie
 
 app = Flask(__name__)

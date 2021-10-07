@@ -1,11 +1,8 @@
 from urllib import request
 from lxml import etree
 from bs4 import BeautifulSoup
-# response = request.urlopen('https://www.imdb.com/chart/top/')
-# html_tree = etree.HTML(response.read().decode('utf-8'))
 import re
 from models import IMDB_Movie
-soup = BeautifulSoup(open('index.html'), 'lxml')
 
 
 URL = 'https://www.imdb.com/chart/top/'
@@ -18,8 +15,10 @@ def get_html(url):
     return response.read().decode('utf-8')
 
 
-# parse https://www.imdb.com/chart/top/
-# soup = BeautifulSoup(get_html(URL), 'lxml')
+# get chart html page
+soup = BeautifulSoup(get_html(URL), 'lxml')
+
+
 lister_list = soup.select("tbody[class='lister-list'] > tr")
 
 
@@ -47,7 +46,9 @@ for item in lister_list:
     content = detail_soup.find(
         'div', class_=re.compile('^Hero__ContentContainer'))
 
-    genre = content.find(attrs={'data-testid': 'genres'}).get_text()
+    # iterate genres and save as list
+    genres = [genre.get_text()
+              for genre in content.find(attrs={'data-testid': 'genres'})]
     plot = content.find(attrs={'data-testid': 'plot-l'}).get_text()
 
     # get container of names
@@ -64,12 +65,11 @@ for item in lister_list:
 
     user_review_count = content.find('span', {'class': 'score'}).get_text()
 
-    print(counter)
     counter = counter+1
     movie = IMDB_Movie(
         title=title,
         rating=rating,
-        genre=genre,
+        genres=genres,
         plot=plot,
         directors=directors,
         writers=writers,

@@ -8,7 +8,7 @@ connect(db='top_movie', host="localhost", port=27017)
 class Movie(Document):
     title = StringField(required=True, max_length=70)
     rating = DecimalField(precision=1)
-    genre = StringField(max_length=30)
+    genres = ListField(StringField(max_length=20))
     plot = StringField()
     directors = ListField(StringField(max_length=50))
     writers = ListField(StringField(max_length=50))

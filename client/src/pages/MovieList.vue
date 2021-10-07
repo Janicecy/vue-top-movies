@@ -10,6 +10,10 @@
       <span>{{ text }}</span>
     </a>
 
+    <span slot="genres" slot-scope="genres">
+      {{ genres.join(", ") }}
+    </span>
+
     <span slot="directors" slot-scope="directors">
       <a
         class="a-name"
@@ -40,7 +44,6 @@
         ><b>{{ rating }} ({{ record.user_review_count }})</b></span
       >
     </span>
-
   </a-table>
 </template>
 
@@ -56,6 +59,7 @@ export default {
           title: "Rank",
           dataIndex: "key",
           key: "key",
+          sorter: (a, b) => a.key - b.key,
         },
         {
           title: "Title",
@@ -65,11 +69,11 @@ export default {
           scopedSlots: { customRender: "name" },
         },
         {
-          title: "Genre",
-          dataIndex: "genre",
-          key: "genre",
+          title: "Genres",
+          dataIndex: "genres",
+          key: "genres",
           // width: 80,
-          // scopedSlots: { customRender: "name" },
+          scopedSlots: { customRender: "genres" },
         },
         {
           title: "Directors",
@@ -123,7 +127,6 @@ export default {
 .a-name {
   display: block;
 }
-
 
 .movie-table {
   padding: 3% 2%;
