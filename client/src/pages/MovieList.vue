@@ -1,59 +1,66 @@
 <template>
-  <a-table class="movie-table" :columns="columns" :data-source="data">
-    <a
-      slot="name"
-      slot-scope="text, record"
-      target="_blank"
-      :href="`https://www.imdb.com/${record.detail_path}`"
-    >
-      <img class="cover" :src="`${record.poster_path}`" alt="cover" />
-      <span>{{ text }}</span>
-    </a>
-
-    <span slot="genres" slot-scope="genres">
-      {{ genres.join(", ") }}
-    </span>
-
-    <span slot="directors" slot-scope="directors">
+  <div class="movie-table">
+    <h1 class="header">IMDB TOP 250</h1>
+    <a-table :columns="columns" :data-source="movies">
       <a
-        class="a-name"
-        v-for="director in directors"
-        :key="director"
-        :href="`https://en.wikipedia.org/wiki/${director}`"
+        slot="name"
+        slot-scope="text, record"
         target="_blank"
+        :href="`https://www.imdb.com/${record.detail_path}`"
       >
-        {{ director }}
+        <img class="cover" :src="`${record.poster_path}`" alt="cover" />
+        <span>{{ text }}</span>
       </a>
-    </span>
 
-    <span slot="stars" slot-scope="stars">
-      <a
-        class="a-name"
-        v-for="star in stars"
-        :key="star"
-        :href="`https://en.wikipedia.org/wiki/${star}`"
-        target="_blank"
-      >
-        {{ star }}
-      </a>
-    </span>
+      <span slot="genres" slot-scope="genres">
+        {{ genres.join(", ") }}
+      </span>
 
-    <span slot="rating" slot-scope="rating, record">
-      <a-icon type="star" class="star-icon" theme="filled" />
-      <span
-        ><b>{{ rating }} ({{ record.user_review_count }})</b></span
-      >
-    </span>
-  </a-table>
+      <span slot="directors" slot-scope="directors">
+        <a
+          class="a-name"
+          v-for="director in directors"
+          :key="director"
+          :href="`https://en.wikipedia.org/wiki/${director}`"
+          target="_blank"
+        >
+          {{ director }}
+        </a>
+      </span>
+
+      <span slot="stars" slot-scope="stars">
+        <a
+          class="a-name"
+          v-for="star in stars"
+          :key="star"
+          :href="`https://en.wikipedia.org/wiki/${star}`"
+          target="_blank"
+        >
+          {{ star }}
+        </a>
+      </span>
+
+      <span slot="rating" slot-scope="rating, record">
+        <a-icon type="star" class="star-icon" theme="filled" />
+        <span
+          ><b>{{ rating }} ({{ record.user_review_count }})</b></span
+        >
+      </span>
+    </a-table>
+
+    <Rating v-if="movies[0]" :movies="movies" />
+  </div>
 </template>
 
 <script>
 import axios from "axios";
+import Rating from "./Rating";
 
 export default {
+  components: { Rating },
   data() {
     return {
-      data: [],
+      movies: [],
       columns: [
         {
           title: "Rank",
@@ -108,7 +115,10 @@ export default {
 
   created() {
     axios.get("/api/movie/imdb").then((res) => {
-      this.data = res.data.map((item, index) => ({ ...item, key: index + 1 }));
+      this.movies = res.data.map((item, index) => ({
+        ...item,
+        key: index + 1,
+      }));
     });
   },
 };
@@ -128,7 +138,14 @@ export default {
   display: block;
 }
 
+.header {
+  font-size: 2em;
+  /* margin: 30px 0; */
+  font-weight: bold;
+}
+
+
 .movie-table {
-  padding: 3% 2%;
+  padding: 1% 2%;
 }
 </style>
