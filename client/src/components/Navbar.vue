@@ -15,7 +15,7 @@ export default {
       menus: {
         "/home": "Home",
         "/movie": "Movie",
-        "/rating": "Rating",
+        "/analytics": "Analytics",
       },
       activeIndex: ["/home"],
     };

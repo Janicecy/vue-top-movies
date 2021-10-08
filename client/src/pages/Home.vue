@@ -2,8 +2,8 @@
   <div class="text-center">
     <div class="header">
       <div class="header-text">
-        <h1>Top 100 Movies Data Analytics</h1>
-        <h3>Built with Vue2, Flask and Echarts.</h3>
+        <h1>Top Movies Data Analytics</h1>
+        <h3>Built with Vue2, Antd and Flask.</h3>
       </div>
       <img id="header-img" src="../assets/header.jpg" alt="" />
     </div>
@@ -16,16 +16,16 @@
         <img class="logo" src="../assets/imdb_logo.png" alt="">
       </a-card>
 
-      <a-card hoverable class="box-card" @click.native="routeTo('rating')">
-        <a-icon class="icon" theme="filled" type="star" />
-        <div class="num">100</div>
-        <div class="text">Rating</div>
+      <a-card hoverable class="box-card" @click.native="routeTo('chart')">
+        <a-icon type="area-chart" class="icon"  />
+        <div class="num">3+</div>
+        <div class="text">Charts</div>
       </a-card>
 
       <a-card hoverable class="box-card">
-        <a-icon type="area-chart" class="icon"  />
-        <div class="num">100</div>
-        <div class="text">Charts</div>
+        <a-icon type="dot-chart" class="icon" />
+        <div class="num">5,000+</div>
+        <div class="text">Analytics</div>
       </a-card>
     </div>
   </div>

@@ -19,8 +19,13 @@ export default new VueRouter({
             component: MovieList
         },
         {
-            name: 'rating',
-            path: '/rating',
+            name: 'chart',
+            path: '/charts',
+            component: Rating
+        },
+        {
+            name: 'Analytics',
+            path: '/analytics',
             component: Rating
         }
         
