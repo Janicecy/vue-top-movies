@@ -2,8 +2,10 @@ import VueRouter from 'vue-router'
 import Home from '../pages/Home'
 import MovieList from '../pages/MovieList'
 import Rating from '../pages/Rating'
+import { publicPath } from '../../vue.config'
 export default new VueRouter({
     mode:'history',
+    base: publicPath,
     routes: [
         {
             path: '/', redirect: '/home'
