@@ -1,0 +1,86 @@
+[
+  {
+    "count": 183,
+    "genre": "Drama"
+  },
+  {
+    "count": 56,
+    "genre": "Crime"
+  },
+  {
+    "count": 55,
+    "genre": "Adventure"
+  },
+  {
+    "count": 48,
+    "genre": "Action"
+  },
+  {
+    "count": 46,
+    "genre": "Comedy"
+  },
+  {
+    "count": 32,
+    "genre": "Thriller"
+  },
+  {
+    "count": 31,
+    "genre": "Mystery"
+  },
+  {
+    "count": 28,
+    "genre": "Biography"
+  },
+  {
+    "count": 23,
+    "genre": "Animation"
+  },
+  {
+    "count": 23,
+    "genre": "Romance"
+  },
+  {
+    "count": 21,
+    "genre": "War"
+  },
+  {
+    "count": 20,
+    "genre": "Sci-Fi"
+  },
+  {
+    "count": 15,
+    "genre": "History"
+  },
+  {
+    "count": 11,
+    "genre": "Family"
+  },
+  {
+    "count": 10,
+    "genre": "Fantasy"
+  },
+  {
+    "count": 6,
+    "genre": "Western"
+  },
+  {
+    "count": 6,
+    "genre": "Music"
+  },
+  {
+    "count": 6,
+    "genre": "Sport"
+  },
+  {
+    "count": 5,
+    "genre": "Horror"
+  },
+  {
+    "count": 4,
+    "genre": "Film-Noir"
+  },
+  {
+    "count": 1,
+    "genre": "Musical"
+  }
+]
